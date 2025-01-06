@@ -18,6 +18,10 @@ def find_env_var_name_and_value(line: str) -> tuple[Optional[str], Optional[str]
 
     line = line.replace("export ", "")
     name, value = line.split("=", 1)
+
+    value = value.replace("'", "")
+    value = value.replace('"', "")
+
     return name, value
 
 
